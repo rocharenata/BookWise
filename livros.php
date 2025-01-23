@@ -1,4 +1,13 @@
-﻿<!DOCTYPE html>
+﻿<?php
+
+// livros
+
+$id = $_REQUEST ['id'];
+
+?>
+
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,7 +21,7 @@
             <div class="font-bold text-xl tracking-wide">Book Wise</div>
             <ul class="flex space-x-4 font-bold">
                 <li><a href="/" class="text-lime-500">Explorar</a></li>
-                <li><a href="/meus-livros.php" class="font-semibold hover:underline">Meus Livros</a></li>
+                <li><a href="/livros.php" class="font-semibold hover:underline">Meus Livros</a></li>
             </ul>
             <ul>
                 <li><a href="/login.php" class="hover:underline">Fazer login</a></li>
@@ -21,7 +30,7 @@
     </header>
 
     <main class="mx-auto max-w-screen-lg space--y-6">
-  ID do Livro <?=$id?>
+        ID do Livro <?=$id?>
     </main>
 </body>
 </html>
