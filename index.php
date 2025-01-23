@@ -1,16 +1,6 @@
 ﻿<?php
 
-$livros = [
-    ['id' => 1, 'titulo' => 'Senhor dos Aneis', 'autor' => 'Tolkien', 'descrição' => 'Uma aventura épica na Terra Média.'],
-    ['id' => 2, 'titulo' => 'Harry Potter', 'autor' => 'J.K. Rowling', 'descrição' => 'A história de um jovem bruxo.'],
-    ['id' => 3, 'titulo' => 'O Hobbit', 'autor' => 'Tolkien', 'descrição' => 'A jornada de Bilbo Bolseiro.'],
-    ['id' => 4, 'titulo' => '1984', 'autor' => 'George Orwell', 'descrição' => 'Uma distopia sobre um regime totalitário.'],
-    ['id' => 5, 'titulo' => 'A Revolução dos Bichos', 'autor' => 'George Orwell', 'descrição' => 'Uma fábula sobre a corrupção do poder.'],
-    ['id' => 6, 'titulo' => 'Dom Quixote', 'autor' => 'Miguel de Cervantes', 'descrição' => 'As aventuras de um cavaleiro errante.'],
-    ['id' => 7, 'titulo' => 'Moby Dick', 'autor' => 'Herman Melville', 'descrição' => 'A caça à baleia branca.'],
-    ['id' => 8, 'titulo' => 'Guerra e Paz', 'autor' => 'Liev Tolstói', 'descrição' => 'Um épico sobre a invasão napoleônica na Rússia.'],
-    
-];
+require 'dados.php'; // Importa os dados de livros
 
 ?>
 
@@ -54,7 +44,7 @@ $livros = [
                 <div class="flex">
                     <div class="w-1/3">Imagem</div>
                     <div class="space-y-1">
-                        <a href="/livro.php?id=<?= $livro['id'] ?>" class="font-semibold hover:underline"><?= $livro['titulo'] ?></a>
+                        <a href="/livros.php?id=<?= $livro['id'] ?>" class="font-semibold hover:underline"><?= $livro['titulo'] ?></a>
                         <div class="text-xs italic"><?= $livro['autor'] ?></div>
                         <div class="text-xs italic flex items-center whitespace-nowrap">⭐⭐⭐⭐⭐(3 Avaliações)</div>
                     </div>
