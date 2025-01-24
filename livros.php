@@ -1,11 +1,19 @@
 ﻿<?php
 
-// livros
+require 'dados.php'; // Importa os dados de livros
 
-$id = $_REQUEST ['id'];
+$id = $_REQUEST['id']; // Pega o ID do livro da requisição (GET ou POST)
+
+$filtrado = array_filter($livros, function($livro) => $livro['id'] == $id; // Filtra o livro pelo ID
+});
+
+$livros = array_pop($filtrado);
+
+echo "<pre>";
+var_dump($livros); // Exibe o resultado do filtro para depuração
+echo "</pre>";
 
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -30,7 +38,7 @@ $id = $_REQUEST ['id'];
     </header>
 
     <main class="mx-auto max-w-screen-lg space--y-6">
-        ID do Livro <?=$id?>
+    ID do Livro <?=$id?>
     </main>
 </body>
 </html>
