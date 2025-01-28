@@ -1,6 +1,9 @@
 ﻿<?php
 
+
+//model
 require 'dados.php'; // Importa os dados de livros
+
 
 $id = $_REQUEST['id']; // Pega o ID do livro da requisição (GET ou POST)
 
@@ -16,9 +19,9 @@ $livros = array_pop($filtrado);
 
 $view = 'livros'; // Define a view atual
 
-require 'views/template/app.php';
+require "views/template/app.php";
+
+
 
 
 ?>
-
- 

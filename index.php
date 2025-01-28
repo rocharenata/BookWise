@@ -1,10 +1,17 @@
 ﻿<?php
 
+echo "Request - Sempre cai no index.php";
+
 require 'dados.php'; // Importa os dados de livros
 
-$view = 'index'; // Define a view atual
+$controller = 'index'; // Define o controller atual
 
-require 'views/template/app.php'; // Importa o template da aplicação
+// Verifica se foi passado um controller via URL
+if (isset($_SERVER['PATH_INFO'])) {
+    $controller = str_replace('/', '', $_SERVER['PATH_INFO']);
+}
 
+// Inclui o controller correspondente
+require "controllers/{$controller}.controller.php"; // Importa o controller correspondente
 
 ?>
