@@ -1,18 +1,13 @@
-﻿<?php
-
-$id =$_REQUEST['id']; //receber parametro de 'id'
-
-?>
-
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Wise</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body class="bg-stone-950 text-stone-400">
     <header class="bg-stone-900">
         <nav class="mx-auto max-w-screen-lg flex justify-between py-4">
@@ -28,7 +23,16 @@ $id =$_REQUEST['id']; //receber parametro de 'id'
     </header>
 
     <main class="mx-auto max-w-screen-lg space--y-6">
-  ID do Livro <?=$id?>
+
+
+    <?php require
+            
+            "views/{$view}.view.php"; // Importa a view atual 
+
+   ?>  
+
+        
     </main>
 </body>
+
 </html>
