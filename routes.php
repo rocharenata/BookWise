@@ -1,17 +1,20 @@
 ﻿<?php
-
-$controller = 'index';
-
-if (isset($_SERVER['PATH_INFO'])) {
-    $controller = str_replace('/', '', $_SERVER['PATH_INFO']);
+function carregarController ($controller) {
+    require "controllers/{$controller}.controller.php";
 }
 
- 
+$controller = str_replace('/', '', parse_url($_SERVER['REQUEST_URI'])['path']);
+
+if (!$controller) $controller = 'index';
+
 if (!file_exists("controllers/{$controller}.controller.php")) {
-    http_response_code(404); // Define o código de resposta HTTP para 404
-    echo "Página não existe";
-    die(); // Use exit() em vez de die() para garantir que nenhum outro código seja executado
+    if (!headers_sent()) {
+        http_response_code(404);
+    }
+    echo "Página não encontrada";
+    die();
 }
 
 require "controllers/{$controller}.controller.php";
- 
+
+?>
