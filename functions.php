@@ -1,11 +1,11 @@
 ﻿<?php
 
-function view($view)
-{
+function view($view) {
+  
     require "views/template/app.php";
 }
 
-function dd($dump)
+function dd(...$dump)
 {
     echo "<pre>";
     var_dump($dump);
@@ -13,10 +13,10 @@ function dd($dump)
     die();
 }
 
-
-function abort($code)
-{
+function abort($code){
     http_response_code($code);
     view($code);
     die();
 }
+
+?>
