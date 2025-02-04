@@ -1,23 +1,20 @@
 ﻿<?php
 
-$controller = 'index';
-
-if (isset($_SERVER['PATH_INFO'])) {
-    $controller = str_replace('/', '', $_SERVER['PATH_INFO']);
+function carregarController ($controller) {
+    require "controllers/{$controller}.controller.php";
 }
 
-if (isset($_SERVER['REQUEST_URI'])) {
-    $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
-} else {
-    $uri = '/';
-}
+$controller = str_replace('/', '', parse_url($_SERVER['REQUEST_URI'])['path']);
+
+if (!$controller) $controller = 'index';
 
 if (!file_exists("controllers/{$controller}.controller.php")) {
-    http_response_code(404);
-    echo "Página não existe";
+    if (!headers_sent()) {
+        http_response_code(404);
+    }
+    echo "Página não encontrada";
     die();
 }
 
-require "controllers/{$controller}.controller.php";
-
+carregarController($controller);
 ?>
